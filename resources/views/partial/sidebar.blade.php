@@ -31,15 +31,15 @@
             <a href="#" class="nav-link active">
               <i class="nav-icon fa fa-dashboard"></i>
               <p>
-                Fakultas
+                Universitas
                 <i class="right fa fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./index.html" class="nav-link active">
+                <a href="beranda" class="nav-link active">
                   <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Kedokteran</p>
+                  <p>Beranda</p>
                 </a>
               </li>
             </ul>
@@ -47,16 +47,7 @@
               <li class="nav-item">
                 <a href="./index.html" class="nav-link active">
                   <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Pertanian</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="./index.html" class="nav-link active">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Pertanian</p>
+                  <p>Fakultas</p>
                 </a>
               </li>
             </ul>

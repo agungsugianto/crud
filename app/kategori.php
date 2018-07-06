@@ -6,10 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class kategori extends Model
 {
-    protected $table = 'fakultas';
-    protected $fillable = array('kedokteran','pertanian','hukum');
-    public $timestamp =true;
-    public funtion fakultas(){
-        return $this->belongTo(Fakultas::class);
-           }
+    protected $table = 'kategori';
+    protected $fillable = ('nama_fakuktas');
+    public function fakultas(){
+        return $this->belongsto('App/id_fakultas');
+    }
 }

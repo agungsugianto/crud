@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class beranda extends Model
 {
-    protected $table = 'beranda';
-    protected $fillable =array('visi_misi','sejarah','struktur_or');
-    public $timestamp =true;
+    protected $table ='berandas';
+    protected $fillable = ['asalusul','visi_misi','struktur_or'];
 }

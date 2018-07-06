@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\fasilitas;
 use Illuminate\Http\Request;
 
-class FasilitasController extends Controller
+class KategoriController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +40,10 @@ class FasilitasController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\fasilitas  $fasilitas
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(fasilitas $fasilitas)
+    public function show($id)
     {
         //
     }
@@ -52,10 +51,10 @@ class FasilitasController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\fasilitas  $fasilitas
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(fasilitas $fasilitas)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +63,10 @@ class FasilitasController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\fasilitas  $fasilitas
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, fasilitas $fasilitas)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +74,10 @@ class FasilitasController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\fasilitas  $fasilitas
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(fasilitas $fasilitas)
+    public function destroy($id)
     {
         //
     }

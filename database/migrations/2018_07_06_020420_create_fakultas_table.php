@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateKategorisTable extends Migration
+class CreateFakultasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateKategorisTable extends Migration
      */
     public function up()
     {
-        Schema::create('kategoris', function (Blueprint $table) {
+        Schema::create('fakultas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('kedokteran');
-            $table->string('pertanian');
             $table->string('hukum');
-            $table->unsignedInteger('fakultas_id');
-            $table->foreign('fakultas_id')->references('id')->on('fakultas')->onDelete('CASCADE');
+            $table->string('pertanian');
+            $table->string('peternakan');
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class CreateKategorisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kategoris');
+        Schema::dropIfExists('fakultas');
     }
 }
