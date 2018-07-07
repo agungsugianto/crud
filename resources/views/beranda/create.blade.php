@@ -12,7 +12,7 @@
 			  	<form action="{{ route('beranda.store') }}" method="post" >
 			  		{{ csrf_field() }}
 			  		<div class="form-group {{ $errors->has('asalusul') ? ' has-error' : '' }}">
-			  			<label class="control-label">asalusul</label>	
+			  			<label class="control-label">Sejarah</label>	
 			  			<input type="text" name="asalusul" class="form-control"  required>
 			  			@if ($errors->has('asalusul'))
                             <span class="help-block">
@@ -32,7 +32,7 @@
 			  		</div>
 
 			  		<div class="form-group {{ $errors->has('struktur_or') ? ' has-error' : '' }}">
-			  			<label class="control-label">struktur organisasi</label>	
+			  			<label class="control-label">Struktur Organisasi</label>	
 			  			<input type="text" name="struktur_or" class="form-control"  required>
 			  			@if ($errors->has('struktur_or'))
                             <span class="help-block">

@@ -15,10 +15,11 @@ class CreateFakultasTable extends Migration
     {
         Schema::create('fakultas', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('kedokteran');
-            $table->string('hukum');
-            $table->string('pertanian');
-            $table->string('peternakan');
+            $table->string('nama');
+            $table->string('keterangan');
+            $table->unsignedInteger('id_kategori');
+            $table->foreign('id_kategori')->references('id')->on('kategoris')->onDelete('
+            CASCADE');
             $table->timestamps();
         });
     }

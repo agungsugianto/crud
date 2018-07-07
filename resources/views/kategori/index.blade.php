@@ -5,8 +5,8 @@
 	<div class="container">
 		<div class="col-md-12">
 			<div class="panel panel-info">
-				<div class="panel-heading">Fakultas
-					<div class="panel-title pull-right"><a href="{{ route('fakultas.create') }}">Tambah Data</a>
+				<div class="panel-heading">Kategori
+					<div class="panel-title pull-right"><a href="{{ route('kategori.create') }}">Tambah Data</a>
 				</div>
 			</div>
 <div class="panel-body">
@@ -16,23 +16,21 @@
 				<tr>
 					<th>No</th>
 					<th>Nama</th>
-					<th>Keterangan</th>
 					<th colspan="3">Action</th>
 				</tr>	
 </thead>
 <tbody>
 	@php $no = 1; @endphp
-	@foreach($fakultas as $data)
+	@foreach($kategoris as $data)
 	<tr>
 		<td> {{ $no++ }} </td>
 		<td> {{ $data->nama }} </td>
-		<td><p> {{ $data->keterangan }} </p></td>
-		<td><p> {{ $data->kategori->nama }} </p></td>
-					<td>
-		<a class="btn btn-primary" href=" {{ route('fakultas.edit',$data->id)}} ">Edit Data</a>
+		
+							<td>
+		<a class="btn btn-primary" href=" {{ route('kategori.edit',$data->id)}} ">Edit Data</a>
 	</td>
 	<td>
-							<form method="post" action="{{ route('fakultas.destroy',$data->id) }}">
+							<form method="post" action="{{ route('kategori.destroy',$data->id) }}">
 								<input name="_token" type="hidden" value="{{ csrf_token() }}">
 								<input type="hidden" name="_method" value="DELETE">
 

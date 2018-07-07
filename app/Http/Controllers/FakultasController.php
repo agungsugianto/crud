@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Fakultas;
+use App\kategori;
 class FakultasController extends Controller
 {
     /**
@@ -11,9 +12,15 @@ class FakultasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        //
+        $fakul = Fakultas::with('kategori')->get();
+        return view('fakultas.index',compact('fakul'));
     }
 
     /**
@@ -23,7 +30,8 @@ class FakultasController extends Controller
      */
     public function create()
     {
-        //
+        $kategori = kategori::all();     
+           return view('fakultas.create',compact('kategori'));
     }
 
     /**
@@ -34,7 +42,18 @@ class FakultasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'nama' => 'required|unique:fakultas|max:255',
+            'keterangan' => 'required|min:2', 
+            'id_kategori' => 'required|'           
+        ]);
+
+        $fakul = new Fakultas;
+        $fakul->nama = $request->nama;
+        $fakul->keterangan = $request->keterangan;
+        $fakultas->id_kategori = $request->id_kategori;
+        $fakul->save();
+        return redirect()->route('fakultas.index');
     }
 
     /**
@@ -56,7 +75,10 @@ class FakultasController extends Controller
      */
     public function edit($id)
     {
-        //
+        $fakul = Fakultas::findOrFail($id);
+        $kategori = kategori::all();
+        $selectedKategori = Fakultas::findOrFail($id)->id_kategori;
+        return view('fakultas.edit',compact('fakultas','kategori','selectedKategori'));
     }
 
     /**
@@ -68,7 +90,17 @@ class FakultasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'nama' => 'required|max:255',
+            'keterangan' => 'required|min:2',
+            'id_kategori' => 'required|'
+        ]);
+        $fakul = Fakultas::findOrFail($id);
+        $fakul->nama = $request->nama;
+        $fakul->keterangan = $request->keterangan;
+        $fakultas->id_kategori = $request->id_kategori;
+        $fakul->save();
+        return redirect()->route('fakultas.index');
     }
 
     /**
@@ -79,6 +111,8 @@ class FakultasController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $fakul = Fakultas::findOrFail($id);
+        $fakul->delete();
+        return redirect()->route('fakultas.index');
     }
 }

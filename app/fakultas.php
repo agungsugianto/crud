@@ -6,8 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class fakultas extends Model
 {
-    protected $fillable = ('kedokteran','hukum','pertanian','peternakan');
+    protected $table = 'fakultas';
+    protected $fillable = ['nama','keterangan'];
     public function kategori(){
-        return $this->hasMAny('App\Kategori','id_fakultas');
+        return $this->belongsTo('App/id_kategori');
     }
 }
