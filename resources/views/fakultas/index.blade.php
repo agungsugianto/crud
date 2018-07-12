@@ -17,12 +17,13 @@
 					<th>No</th>
 					<th>Nama</th>
 					<th>Keterangan</th>
+					<th>Kategori</th>
 					<th colspan="3">Action</th>
 				</tr>	
 </thead>
 <tbody>
 	@php $no = 1; @endphp
-	@foreach($fakultas as $data)
+	@foreach($fakul as $data)
 	<tr>
 		<td> {{ $no++ }} </td>
 		<td> {{ $data->nama }} </td>

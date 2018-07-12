@@ -18,6 +18,7 @@
 					<th>Asal usul</th>
 					<th>Visi Misi</th>
 					<th>Struktur Organisasi</th>
+					<th>Fasilitas</th>
 					<th colspan="3">Action</th>
 				</tr>	
 </thead>
@@ -29,6 +30,7 @@
 		<td> {{ $data->asalusul }} </td>
 		<td><p> {{ $data->visi_misi }} </p></td>
 		<td><p> {{ $data->struktur_or }} </p></td>
+		<td><p> {{ $data->fasilitas }} </p></td>
 			<td>
 		<a class="btn btn-primary" href=" {{ route('beranda.edit',$data->id)}} ">Edit Data</a>
 	</td>

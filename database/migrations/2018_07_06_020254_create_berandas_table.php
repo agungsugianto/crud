@@ -18,6 +18,7 @@ class CreateBerandasTable extends Migration
             $table->String('asalusul');
             $table->String('visi_misi');
             $table->String('struktur_or');
+            $table->String('fasilitas');
             $table->timestamps();
         });
     }

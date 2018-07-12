@@ -38,7 +38,8 @@ class BerandaController extends Controller
         $this->validate($request,[
             'asalusul' => 'required|unique:berandas|max:255',
             'visi_misi' => 'required|min:2',
-            'struktur_or' => 'required|min:2'
+            'struktur_or' => 'required|min:2',
+            'fasilitas' => 'required|min:2'
             
         ]);
 
@@ -46,6 +47,7 @@ class BerandaController extends Controller
         $berandas->asalusul = $request->asalusul;
         $berandas->visi_misi = $request->visi_misi;
         $berandas->struktur_or = $request->struktur_or;
+        $berandas->fasilitas = $request->fasilitas;
         $berandas->save();
         return redirect()->route('beranda.index');
     }
@@ -58,8 +60,6 @@ class BerandaController extends Controller
      */
     public function show(beranda $beranda)
     {
-        $berandas = Beranda::findOrFail($id);
-        return view('beranda.show',compact('berandas'));
     }
 
     /**
@@ -86,12 +86,14 @@ class BerandaController extends Controller
         $this->validate($request,[
             'asalusul' => 'required|max:255',
             'visi_misi' => 'required|min:2',
-            'struktur_or' => 'required|min:2'
+            'struktur_or' => 'required|min:2',
+            'fasilitas' => 'required|min:2'
         ]);
         $berandas = Beranda::findOrFail($id);
         $berandas->asalusul = $request->asalusul;
         $berandas->visi_misi = $request->visi_misi;
         $berandas->struktur_or = $request->struktur_or;
+        $berandas->fasilitas = $request->fasilitas;
         $berandas->save();
         return redirect()->route('beranda.index');
     }

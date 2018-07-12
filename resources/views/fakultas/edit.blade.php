@@ -5,39 +5,43 @@
 		<div class="col-md-12">
 			<div class="panel panel-primary">
 			  <div class="panel-heading">Edit Data
-			  	<div class="panel-title pull-right"><a href="{{ route('beranda.index') }}">Kembali</a>
+			  	<div class="panel-title pull-right"><a href="{{ route('fakultas.index') }}">Kembali</a>
 			  	</div>
 			  </div>
 			  <div class="panel-body">
-			  	<form action="{{ route('beranda.update',$berandas->id) }}" method="post" >
+			  	<form action="{{ route('fakultas.update',$fakul->id) }}" method="post" >
 			  		<input name="_method" type="hidden" value="PATCH">
 					  {{ csrf_field() }}
-			  		<div class="form-group {{ $errors->has('asalusul') ? ' has-error' : '' }}">
-			  			<label class="control-label">Asal Usul</label>	
-			  			<input type="text" name="asalusul" class="form-control" value="{{ $berandas->asalusul }}"  required>
-			  			@if ($errors->has('asalusul'))
+			  		<div class="form-group {{ $errors->has('nama') ? ' has-error' : '' }}">
+			  			<label class="control-label">Nama</label>	
+			  			<input type="text" name="nama" class="form-control" value="{{ $fakul->nama }}"  required>
+			  			@if ($errors->has('nama'))
                             <span class="help-block">
-                                <strong>{{ $errors->first('asalusul') }}</strong>
+                                <strong>{{ $errors->first('nama') }}</strong>
                             </span>
                         @endif
 			  		</div>
 
-			  		<div class="form-group {{ $errors->has('visi_misi') ? ' has-error' : '' }}">
-			  			<label class="control-label">Visi Misi</label>	
-			  			<input type="text" name="visi_misi" class="form-control" value="{{ $berandas->visi_misi }}"  required>
-			  			@if ($errors->has('visi_misi'))
+			  		<div class="form-group {{ $errors->has('keterangan') ? ' has-error' : '' }}">
+			  			<label class="control-label">Keterangan</label>	
+			  			<input type="text" name="keterangan" class="form-control" value="{{ $fakul->keterangan }}"  required>
+			  			@if ($errors->has('keterangan'))
                             <span class="help-block">
-                                <strong>{{ $errors->first('visi_misi') }}</strong>
+                                <strong>{{ $errors->first('keterangan') }}</strong>
                             </span>
                         @endif
 			  		</div>
 
-			  		<div class="form-group {{ $errors->has('struktur_or') ? ' has-error' : '' }}">
-			  			<label class="control-label">Struktur Organisasi</label>	
-			  			<input type="text" name="struktur_or" class="form-control" value="{{ $berandas->struktur_or }}"  required>
-			  			@if ($errors->has('struktur_or'))
+			  		<div class="form-group {{ $errors->has('id_kategori') ? ' has-error' : '' }}">
+			  			<label class="control-label">Kategori</label>	
+			  			<select name="id_kategori" class="form-control">
+							@foreach($kategori as $data)
+							<option value="{{$data->id}}" {{$selectedKategori == $data->id ?'selected = "selected"': ''}} >{{$data->nama}}</option> 
+							@endforeach 
+						</select>
+			  			@if ($errors->has('id_kategori'))
                             <span class="help-block">
-                                <strong>{{ $errors->first('struktur_or') }}</strong>
+                                <strong>{{ $errors->first('id_kategori') }}</strong>
                             </span>
                         @endif
 			  		</div>

@@ -15,6 +15,8 @@ class CreateBeritasTable extends Migration
     {
         Schema::create('beritas', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('lampau');
+            $table->string('terkini');
             $table->unsignedInteger('id_kategori');
             $table->foreign('id_kategori')->references('id')->on('kategoris')->onDelete('
             CASCADE');

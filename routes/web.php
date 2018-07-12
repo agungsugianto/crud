@@ -18,7 +18,14 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['prefix'=>'admin','middleware'=>['auth','role:admin']],
+function (){
 Route::resource('beranda', 'BerandaController');
 Route::resource('galeri', 'GaleriController');
 Route::resource('fakultas', 'FakultasController');
 Route::resource('kategori', 'KategoriController');
+Route::resource('berita', 'BeritaController');
+});
+Route::get('blog','FrontController@blog');
+Route::get('blog/{id}', array('as' => 'singleblog', 'uses' =>'FrontController@singleblog'));

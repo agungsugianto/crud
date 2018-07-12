@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class fakultas extends Model
 {
     protected $table = 'fakultas';
-    protected $fillable = ['nama','keterangan'];
+    protected $fillable = ['nama','keterangan','id_kategori'];
     public function kategori(){
-        return $this->belongsTo('App/id_kategori');
+        return $this->belongsTo('App\kategori','id_kategori');
     }
 }

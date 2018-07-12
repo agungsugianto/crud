@@ -6,7 +6,6 @@
 			<div class="panel panel-primary">
 			  <div class="panel-heading">Tambah
 			  	<div class="panel-title pull-right"><a href="{{ route('fakultas.index') }}">Kembali</a>
-			  	</div>
 			  </div>
 			  <div class="panel-body">
 			  	<form action="{{ route('fakultas.store') }}" method="post" >
@@ -27,6 +26,19 @@
 			  			@if ($errors->has('keterangan'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('keterangan') }}</strong>
+                            </span>
+                        @endif
+			  		</div>
+					  <div class="form-group {{ $errors->has('id_kategori') ? ' has-error' : '' }}">
+			  			<label class="control-label">Kategori</label>	
+			  			<select name="id_kategori" class="form-control">
+							@foreach($kategori as $data)
+							<option value="{{$data->id}}">{{$data->nama}}</option> 
+							@endforeach 
+						</select>
+			  			@if ($errors->has('id_kategori'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('id_kategori') }}</strong>
                             </span>
                         @endif
 			  		</div>

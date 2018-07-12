@@ -6,9 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class kategori extends Model
 {
-    protected $table = 'kategori';
-    protected $fillable = ('nama');
-    public function kategori(){
-        return $this->hasMany('App/id_kategori');
+    protected $table = 'kategoris';
+    protected $fillable = ['nama'];
+    public function fakultas()
+    {
+        return $this->hasMany('App\fakultas','id_kategori');
     }
 }

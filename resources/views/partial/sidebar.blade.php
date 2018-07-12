@@ -35,7 +35,16 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="beranda" class="nav-link active">
+                <a href="{{route('berita.index')}}" class="nav-link active">
+                  <i class="nav-icon fa fa-globe"></i>
+                  <p>Berita</p>
+                </a>
+              </li>
+            </ul>
+
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('beranda.index')}}" class="nav-link active">
                   <i class="nav-icon fa fa-home"></i>
                   <p>Beranda</p>
                 </a>
@@ -44,15 +53,15 @@
             
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="fakultas" class="nav-link active">
-                  <i class="fa fa-circle-o-notch nav-icon"></i>
+                <a href="{{route('fakultas.index')}}" class="nav-link active">
+                  <i class="fa fa-graduation-cap nav-icon"></i>
                   <p>Fakultas</p>
                 </a>
               </li>
             </ul>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="kategori" class="nav-link active">
+                <a href="{{route('kategori.index')}}" class="nav-link active">
                   <i class="fa fa-newspaper-o nav-icon"></i>
                   <p>Kategori</p>
                 </a>
@@ -60,7 +69,7 @@
             </ul>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="galeri" class="nav-link active">
+                <a href="{{route('galeri.index')}}" class="nav-link active">
                   <i class="fa fa-picture-o nav-icon"></i>
                   <p>Galeri</p>
                 </a>

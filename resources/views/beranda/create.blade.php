@@ -40,6 +40,15 @@
                             </span>
                         @endif
 			  		</div>
+			  		<div class="form-group {{ $errors->has('fasilitas') ? ' has-error' : '' }}">
+			  			<label class="control-label">Fasilitas</label>	
+			  			<input type="text" name="fasilitas" class="form-control"  required>
+			  			@if ($errors->has('fasilitas'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('fasilitas') }}</strong>
+                            </span>
+                        @endif
+			  		</div>
 					<div class="form-group">
 			  			<button type="submit" class="btn btn-primary">Tambah</button>
 			  		</div>

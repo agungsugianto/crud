@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Fakultas;
+use App\fakultas;
 use App\kategori;
 class FakultasController extends Controller
 {
@@ -19,7 +19,7 @@ class FakultasController extends Controller
 
     public function index()
     {
-        $fakul = Fakultas::with('kategori')->get();
+        $fakul = fakultas::with('kategori')->get();
         return view('fakultas.index',compact('fakul'));
     }
 
@@ -48,10 +48,10 @@ class FakultasController extends Controller
             'id_kategori' => 'required|'           
         ]);
 
-        $fakul = new Fakultas;
+        $fakul = new fakultas;
         $fakul->nama = $request->nama;
         $fakul->keterangan = $request->keterangan;
-        $fakultas->id_kategori = $request->id_kategori;
+        $fakul->id_kategori = $request->id_kategori;
         $fakul->save();
         return redirect()->route('fakultas.index');
     }
@@ -75,10 +75,10 @@ class FakultasController extends Controller
      */
     public function edit($id)
     {
-        $fakul = Fakultas::findOrFail($id);
+        $fakul = fakultas::findOrFail($id);
         $kategori = kategori::all();
         $selectedKategori = Fakultas::findOrFail($id)->id_kategori;
-        return view('fakultas.edit',compact('fakultas','kategori','selectedKategori'));
+        return view('fakultas.edit',compact('fakul','kategori','selectedKategori'));
     }
 
     /**
@@ -95,10 +95,10 @@ class FakultasController extends Controller
             'keterangan' => 'required|min:2',
             'id_kategori' => 'required|'
         ]);
-        $fakul = Fakultas::findOrFail($id);
+        $fakul = fakultas::findOrFail($id);
         $fakul->nama = $request->nama;
         $fakul->keterangan = $request->keterangan;
-        $fakultas->id_kategori = $request->id_kategori;
+        $fakul->id_kategori = $request->id_kategori;
         $fakul->save();
         return redirect()->route('fakultas.index');
     }
@@ -111,8 +111,8 @@ class FakultasController extends Controller
      */
     public function destroy($id)
     {
-        $fakul = Fakultas::findOrFail($id);
-        $fakul->delete();
+        $fakul = fakultas::findOrFail($id);
+        $tas->delete();
         return redirect()->route('fakultas.index');
     }
 }
